@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Warehouse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="site-wrapper">
+        <header class="site-header">
+            <input type="checkbox" id="menu-toggle-check" hidden />
+            <nav class="top-nav" aria-label="Mobile navigation">
+                <label for="menu-toggle-check" class="menu-toggle">
+                    <i class="fa-solid fa-bars bars-icon" aria-hidden="true"></i>
+                    <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
+                    <span class="menu-text">Menu</span>
+                </label>
+
+                <div class="cart-info">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>View Cart</span>
+                    </a>
+                    <span class="cart-count" aria-live="polite">0 items</span>
+                </div>
+            </nav>
+
+            <div class="nav-bar">
+                <nav class="main-site-nav" aria-label="Primary navigation">
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="#">About SW</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">View Products</a></li>
+                        <li class="nav-spacer" aria-hidden="true"></li>
+                        <li class="nav-login">
+                            <a href="#">
+                                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                                Login
+                            </a>
+                        </li>
+
+                        <li class="nav-cart">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span>View Cart</span>
+                            </a>
+                            <span class="cart-count" aria-live="polite">0 items</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-main">
+                <div class="header-logo">
+                    <img src="{{ asset('images/sports-warehouse-logo-600.png') }}" alt="Sports Warehouse logo" />
+                </div>
+                <search class="search-container">
+                    <form role="search" class="search-form">
+                        <label for="site-search" class="visually-hidden">Search products</label>
+                        <div class="search">
+                            <input id="site-search" type="search" placeholder="Search products" />
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span class="search-icon-stack" aria-hidden="true">
+                                <i class="fa-solid fa-circle search-icon-bg"></i>
+                                <i class="fa-solid fa-magnifying-glass search-icon-fg"></i>
+                            </span>
+                            <span class="visually-hidden">Submit search</span>
+                        </button>
+                    </form>
+                </search>
+            </div>
+
+            <section class="product-categories" aria-label="Product categories">
+                <div class="categories">
+                    <a href="#">Shoes</a>
+                    <a href="#">Helmets</a>
+                    <a href="#">Pants</a>
+                    <a href="#">Tops</a>
+                    <a href="#">Balls</a>
+                    <a href="#">Equipment</a>
+                    <a href="#">Training gear</a>
+                </div>
+            </section>
+        </header>
+
+        <main id="main-content">
+            @yield('content')
+        </main>
+
+        <footer class="site-footer">
+            <div class="inner-footer">
+                <nav class="footer-nav" aria-labelledby="footer-nav-heading">
+                    <h3 id="footer-nav-heading">Site navigation</h3>
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="#">About SW</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">View Products</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footer-categories" aria-labelledby="footer-categories-heading">
+                    <h3 id="footer-categories-heading">Product categories</h3>
+                    <ul>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Helmets</a></li>
+                        <li><a href="#">Pants</a></li>
+                        <li><a href="#">Tops</a></li>
+                        <li><a href="#">Balls</a></li>
+                        <li><a href="#">Equipment</a></li>
+                        <li><a href="#">Training gear</a></li>
+                    </ul>
+                </nav>
+
+                <section class="contact-info">
+                    <h3>Contact Sports Warehouse</h3>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="#" aria-label="Sports Warehouse on Facebook">
+                                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Sports Warehouse on Twitter">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Other contact options">
+                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Other
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="sub-footer">
+                <div class="copyright">
+                    <p>© Copyright 2026 Sports Warehouse. All rights reserved. Website made by Awesomesauce Design and Cynthia Burns.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ asset('scripts/slideshow.js') }}" defer></script>
+</body>
+
+</html>
