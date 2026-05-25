@@ -27,11 +27,13 @@
                 </label>
 
                 <div class="cart-info">
-                    <a href="#">
+                    <a href="{{ route('cart.index') }}">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>View Cart</span>
                     </a>
-                    <span class="cart-count" aria-live="polite">0 items</span>
+                    <span class="cart-count" aria-live="polite">
+                        {{ session('cart') ? array_sum(array_column(session('cart'), 'quantity')) : 0 }} items
+                    </span>
                 </div>
             </nav>
 
@@ -51,11 +53,13 @@
                         </li>
 
                         <li class="nav-cart">
-                            <a href="#">
+                            <a href="{{ route('cart.index') }}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 <span>View Cart</span>
                             </a>
-                            <span class="cart-count" aria-live="polite">0 items</span>
+                            <span class="cart-count" aria-live="polite">
+                                {{ session('cart') ? array_sum(array_column(session('cart'), 'quantity')) : 0 }} items
+                            </span>
                         </li>
                     </ul>
                 </nav>
@@ -66,10 +70,10 @@
                     <img src="{{ asset('images/sports-warehouse-logo-600.png') }}" alt="Sports Warehouse logo" />
                 </div>
                 <search class="search-container">
-                    <form role="search" class="search-form">
+                    <form action="{{ url('/search') }}" method="GET" role="search" class="search-form">
                         <label for="site-search" class="visually-hidden">Search products</label>
                         <div class="search">
-                            <input id="site-search" type="search" placeholder="Search products" />
+                            <input id="site-search" name="query" type="search" placeholder="Search products" value="{{ request('query') }}" />
                         </div>
                         <button type="submit" class="submit-btn">
                             <span class="search-icon-stack" aria-hidden="true">
@@ -123,30 +127,20 @@
                         <li>
                             <a href="#" aria-label="Sports Warehouse on Facebook">
                                 <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
-                        <li><a href="#">Training gear</a></li>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Sports Warehouse on Twitter">
+                                <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Other contact options">
+                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Other
+                            </a>
+                        </li>
                     </ul>
-                    </nav>
-
-                    <section class="contact-info">
-                        <h3>Contact Sports Warehouse</h3>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="#" aria-label="Sports Warehouse on Facebook">
-                                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Sports Warehouse on Twitter">
-                                    <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" aria-label="Other contact options">
-                                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Other
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                </section>
             </div>
 
             <div class="sub-footer">
@@ -157,7 +151,7 @@
         </footer>
     </div>
 
-    <script src="{{ asset('scripts/slideshow.js') }}" defer></script>
+    <script src="{{ asset('js/slideshow.js') }}" defer></script>
 </body>
 
 </html>

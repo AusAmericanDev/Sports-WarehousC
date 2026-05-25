@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $ballsId = DB::table('categories')->insertGetId(['name' => 'Balls']);
         DB::table('categories')->insert(['name' => 'Pants']);
         DB::table('categories')->insert(['name' => 'Tops']);
-        DB::table('categories')->insert(['name' => 'Equipment']);
+        $equipmentId = DB::table('categories')->insertGetId(['name' => 'Equipment']);
         DB::table('categories')->insert(['name' => 'Training gear']);
 
         // 3. Insert Sample Products mapped to those categories
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'sale_price' => 15.00,
                 'image_path' => 'waterBottle.jpg',
                 'is_featured' => true,
-                'category_id' => $ballsId,
+                'category_id' => $equipmentId,
             ],
             [
                 'name' => 'Sting ArmaPlus Boxing Gloves',
@@ -63,10 +63,10 @@ class DatabaseSeeder extends Seeder
                 'sale_price' => null,
                 'image_path' => 'boxingGloves.jpg',
                 'is_featured' => true,
-                'category_id' => $shoesId,
+                'category_id' => $equipmentId,
             ],
             [
-                'name' => 'Asics Gel-Lethal Tiger 8 IT',
+                'name' => 'Asics Gel-Lethal Tiger 8 IT footy shoes',
                 'description' => 'Lightweight professional football cleats optimized for firm natural ground.',
                 'price' => 17.50,
                 'sale_price' => 15.00,

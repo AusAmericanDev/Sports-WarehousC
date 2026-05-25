@@ -23,23 +23,26 @@
   <div class="product-grid">
     @foreach($featuredProducts as $product)
     <article class="product-card">
-      <h3 class="visually-hidden">{{ $product->name }}</h3>
+      <a href="{{ url('/products/' . $product->id) }}" style="text-decoration: none; display: flex; flex-direction: column; height: 100%; width: 100%; align-items: center; justify-content: space-between;">
 
-      <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
+        <h3 class="visually-hidden">{{ $product->name }}</h3>
 
-      <div class="price-container">
-        @if($product->sale_price)
-        <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
-        <span class="was-price">
-          <span class="was-label">WAS</span>
-          <del class="original-price">${{ number_format($product->price, 2) }}</del>
-        </span>
-        @else
-        <span class="price">${{ number_format($product->price, 2) }}</span>
-        @endif
-      </div>
+        <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
 
-      <p class="product-name">{{ $product->name }}</p>
+        <div class="price-container">
+          @if($product->sale_price)
+          <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
+          <span class="was-price">
+            <span class="was-label">WAS</span>
+            <del class="original-price">${{ number_format($product->price, 2) }}</del>
+          </span>
+          @else
+          <span class="price">${{ number_format($product->price, 2) }}</span>
+          @endif
+        </div>
+
+        <p class="product-name">{{ $product->name }}</p>
+      </a>
     </article>
     @endforeach
   </div>

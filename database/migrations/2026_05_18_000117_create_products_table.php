@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->decimal('price', 8, 2); // Holds prices up to $999,999.99
-            $table->decimal('sale_price', 8, 2)->nullable(); // nullable means it can be left blank if not on sale
-            $table->string('image_path'); // Stores the filename like 'soccerBall.jpg'
-            $table->boolean('is_featured')->default(false); // Flags if it goes on the homepage
+            $table->decimal('price', 8, 2);
+            $table->decimal('sale_price', 8, 2)->nullable();
+            $table->string('image_path');
+            $table->boolean('is_featured')->default(false);
 
             // This connects the product to your categories table
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
