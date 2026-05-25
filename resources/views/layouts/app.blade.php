@@ -84,13 +84,9 @@
 
             <section class="product-categories" aria-label="Product categories">
                 <div class="categories">
-                    <a href="#">Shoes</a>
-                    <a href="#">Helmets</a>
-                    <a href="#">Pants</a>
-                    <a href="#">Tops</a>
-                    <a href="#">Balls</a>
-                    <a href="#">Equipment</a>
-                    <a href="#">Training gear</a>
+                    @foreach($categories as $category)
+                    <a href="/category/{{ $category->id }}">{{ $category->name }}</a>
+                    @endforeach
                 </div>
             </section>
         </header>
@@ -115,13 +111,9 @@
                 <nav class="footer-categories" aria-labelledby="footer-categories-heading">
                     <h3 id="footer-categories-heading">Product categories</h3>
                     <ul>
-                        <li><a href="#">Shoes</a></li>
-                        <li><a href="#">Helmets</a></li>
-                        <li><a href="#">Pants</a></li>
-                        <li><a href="#">Tops</a></li>
-                        <li><a href="#">Balls</a></li>
-                        <li><a href="#">Equipment</a></li>
-                        <li><a href="#">Training gear</a></li>
+                        @foreach($categories as $category)
+                        <li><a href="/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </nav>
 
@@ -131,20 +123,30 @@
                         <li>
                             <a href="#" aria-label="Sports Warehouse on Facebook">
                                 <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Sports Warehouse on Twitter">
-                                <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Other contact options">
-                                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Other
-                            </a>
-                        </li>
+                        <li><a href="#">Training gear</a></li>
                     </ul>
-                </section>
+                    </nav>
+
+                    <section class="contact-info">
+                        <h3>Contact Sports Warehouse</h3>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="#" aria-label="Sports Warehouse on Facebook">
+                                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Sports Warehouse on Twitter">
+                                    <i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" aria-label="Other contact options">
+                                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Other
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
             </div>
 
             <div class="sub-footer">

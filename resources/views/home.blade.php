@@ -21,60 +21,27 @@
   <h2 id="featured-heading" class="featured-heading">Featured Products</h2>
 
   <div class="product-grid">
+    @foreach($featuredProducts as $product)
     <article class="product-card">
-      <h3 class="visually-hidden">adidas Euro16 Top Soccer Ball</h3>
-      <img src="{{ asset('images/soccerBall.jpg') }}" alt="Adidas Euro 16 top soccer ball" />
+      <h3 class="visually-hidden">{{ $product->name }}</h3>
+
+      <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
+
       <div class="price-container">
-        <span class="current-price">$34.95</span>
+        @if($product->sale_price)
+        <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
         <span class="was-price">
           <span class="was-label">WAS</span>
-          <del class="original-price">$46.00</del>
+          <del class="original-price">${{ number_format($product->price, 2) }}</del>
         </span>
+        @else
+        <span class="price">${{ number_format($product->price, 2) }}</span>
+        @endif
       </div>
-      <p class="product-name">adidas Euro16 Top Soccer Ball</p>
-    </article>
 
-    <article class="product-card">
-      <h3 class="visually-hidden">Pro-tec Classic Skate Helmet</h3>
-      <img src="{{ asset('images/skateHelmet.jpg') }}" alt="Pro-tec classic skate helmet" />
-      <p class="price">$70.00</p>
-      <p class="product-name">Pro-tec Classic Skate Helmet</p>
+      <p class="product-name">{{ $product->name }}</p>
     </article>
-
-    <article class="product-card">
-      <h3 class="visually-hidden">Nike Sport 600ml Water Bottle</h3>
-      <img src="{{ asset('images/waterBottle.jpg') }}" alt="Nike 600ml sports water bottle" />
-      <div class="price-container">
-        <span class="current-price">$15.00</span>
-        <span class="was-price">
-          <span class="was-label">WAS</span>
-          <del class="original-price">$17.50</del>
-        </span>
-      </div>
-      <p class="product-name">Nike Sport 600ml Water Bottle</p>
-    </article>
-
-    <article class="product-card">
-      <h3 class="visually-hidden">Sting ArmaPlus Boxing Gloves</h3>
-      <img src="{{ asset('images/boxingGloves.jpg') }}" alt="Sting ArmaPlus boxing gloves" />
-      <div class="price-container">
-        <span class="price">$79.99</span>
-      </div>
-      <p class="product-name">Sting ArmaPlus Boxing Gloves</p>
-    </article>
-
-    <article class="product-card">
-      <h3 class="visually-hidden">Asics Gel-Lethal 'Tiger 8' IT Men's</h3>
-      <img src="{{ asset('images/footyBoots.jpg') }}" alt="Asics Gel-Lethal football boots" />
-      <div class="price-container">
-        <span class="current-price">$15.00</span>
-        <span class="was-price">
-          <span class="was-label">WAS</span>
-          <del class="original-price">$17.50</del>
-        </span>
-      </div>
-      <p class="product-name">Asics Gel-Lethal 'Tiger 8' IT Men's</p>
-    </article>
+    @endforeach
   </div>
 </section>
 

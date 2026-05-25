@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Automatic primary key
+            $table->string('name'); // e.g., Shoes, Helmets, Balls
+            $table->timestamps(); // Automatic created_at and updated_at
         });
     }
 
