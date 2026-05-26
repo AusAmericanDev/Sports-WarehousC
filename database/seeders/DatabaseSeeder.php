@@ -11,23 +11,24 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
+    { // <-- Added this missing opening curly brace!
+
         // 1. Clear out any old data to prevent duplication errors
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('products')->truncate();
         DB::table('categories')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        // 2. Insert Categories and grab their IDs
+        // 2. Insert Categories and grab their IDs dynamically
         $shoesId = DB::table('categories')->insertGetId(['name' => 'Shoes']);
         $helmetsId = DB::table('categories')->insertGetId(['name' => 'Helmets']);
         $ballsId = DB::table('categories')->insertGetId(['name' => 'Balls']);
-        DB::table('categories')->insert(['name' => 'Pants']);
-        DB::table('categories')->insert(['name' => 'Tops']);
+        $pantsId = DB::table('categories')->insertGetId(['name' => 'Pants']);
+        $topsId = DB::table('categories')->insertGetId(['name' => 'Tops']);
         $equipmentId = DB::table('categories')->insertGetId(['name' => 'Equipment']);
-        DB::table('categories')->insert(['name' => 'Training gear']);
+        $trainingGearId = DB::table('categories')->insertGetId(['name' => 'Training gear']);
 
-        // 3. Insert Sample Products mapped to those categories
+        // 3. Insert All 9 Products mapped cleanly to those variables
         DB::table('products')->insert([
             [
                 'name' => 'adidas Euro16 Top Soccer Ball',
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 46.00,
                 'sale_price' => 34.95,
                 'image_path' => 'soccerBall.jpg',
-                'is_featured' => true,
+                'is_featured' => 1,
                 'category_id' => $ballsId,
             ],
             [
@@ -44,7 +45,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 70.00,
                 'sale_price' => null,
                 'image_path' => 'skateHelmet.jpg',
-                'is_featured' => true,
+                'is_featured' => 1,
                 'category_id' => $helmetsId,
             ],
             [
@@ -53,7 +54,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 17.50,
                 'sale_price' => 15.00,
                 'image_path' => 'waterBottle.jpg',
-                'is_featured' => true,
+                'is_featured' => 1,
                 'category_id' => $equipmentId,
             ],
             [
@@ -62,7 +63,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 79.99,
                 'sale_price' => null,
                 'image_path' => 'boxingGloves.jpg',
-                'is_featured' => true,
+                'is_featured' => 1,
                 'category_id' => $equipmentId,
             ],
             [
@@ -71,8 +72,44 @@ class DatabaseSeeder extends Seeder
                 'price' => 17.50,
                 'sale_price' => 15.00,
                 'image_path' => 'footyBoots.jpg',
-                'is_featured' => true,
+                'is_featured' => 1,
                 'category_id' => $shoesId,
+            ],
+            [
+                'name' => 'Asics Gel-Kayano Running Shoes',
+                'description' => 'Premium high-performance running shoes designed with FlyteFoam cushioning for ultimate comfort and stability.',
+                'price' => 260.00,
+                'sale_price' => 195.00,
+                'image_path' => 'runningShoes.jpg',
+                'is_featured' => 0,
+                'category_id' => $shoesId,
+            ],
+            [
+                'name' => 'Nike Air Women Pink Tee',
+                'description' => 'Comfortable cotton-blend lifestyle tee featuring a metallic silver Nike Air graphic chest imprint.',
+                'price' => 45.00,
+                'sale_price' => null,
+                'image_path' => 'whitePinkTop.jpg',
+                'is_featured' => 0,
+                'category_id' => $topsId,
+            ],
+            [
+                'name' => 'Adidas 3-Stripes Black Tee',
+                'description' => 'Classic heavyweight cotton training tee featuring signature contrast white three-stripe shoulder accents.',
+                'price' => 55.00,
+                'sale_price' => null,
+                'image_path' => 'blackTop.jpg',
+                'is_featured' => 0,
+                'category_id' => $topsId,
+            ],
+            [
+                'name' => 'Adidas Originals Tracksuit Pants',
+                'description' => 'Sleek slim-fit athletic fleece track pants featuring flare cuff leg cuts and embroidered logo detailing.',
+                'price' => 110.00,
+                'sale_price' => 85.00,
+                'image_path' => 'tracksuit.jpg',
+                'is_featured' => 0,
+                'category_id' => $pantsId,
             ]
         ]);
     }

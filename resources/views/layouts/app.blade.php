@@ -43,7 +43,7 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#">About SW</a></li>
                         <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
-                        <li><a href="#">View Products</a></li>
+                        <li><a href="{{ route('products.index') }}">View Products</a></li>
                         <li class="nav-spacer" aria-hidden="true"></li>
                         <li class="nav-login">
                             <a href="#">
@@ -109,7 +109,7 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
                         <li><a href="#">About SW</a></li>
                         <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
-                        <li><a href="#">View Products</a></li>
+                        <li><a href="{{ route('products.index') }}">View Products</a></li>
                         <li><a href="#">Privacy policy</a></li>
                     </ul>
                 </nav>

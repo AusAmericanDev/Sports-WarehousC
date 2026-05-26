@@ -24,3 +24,9 @@ Route::get('/contact', function () {
     $categories = \App\Models\Category::all();
     return view('contact', compact('categories'));
 })->name('contact.index');
+
+Route::get('/products', function () {
+    $products = \App\Models\Product::all();
+    $categories = \App\Models\Category::all();
+    return view('products.index', compact('products', 'categories'));
+})->name('products.index');
