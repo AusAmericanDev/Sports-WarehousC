@@ -1070,8 +1070,9 @@ button:focus-visible {
         flex-direction: row;
         width: 100%;
         max-width: 960px;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        gap: 15px;
     }
 
     .product-card {
