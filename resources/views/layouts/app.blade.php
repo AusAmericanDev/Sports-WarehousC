@@ -41,7 +41,7 @@
                 <nav class="main-site-nav" aria-label="Primary navigation">
                     <ul>
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">About SW</a></li>
+                        <li><a href="{{ route('about.index') }}">About SW</a></li>
                         <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
                         <li><a href="{{ route('products.index') }}">View Products</a></li>
                         <li class="nav-spacer" aria-hidden="true"></li>
@@ -107,7 +107,7 @@
                     <h3 id="footer-nav-heading">Site navigation</h3>
                     <ul>
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="#">About SW</a></li>
+                        <li><a href="{{ route('about.index') }}">About SW</a></li>
                         <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
                         <li><a href="{{ route('products.index') }}">View Products</a></li>
                         <li><a href="#">Privacy policy</a></li>

@@ -30,3 +30,8 @@ Route::get('/products', function () {
     $categories = \App\Models\Category::all();
     return view('products.index', compact('products', 'categories'));
 })->name('products.index');
+
+Route::get('/about', function () {
+    $categories = \App\Models\Category::all();
+    return view('about', compact('categories'));
+})->name('about.index');
