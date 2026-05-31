@@ -19,7 +19,7 @@
 
         <div style="display: flex; flex-direction: column; gap: 6px;">
             <label for="email" style="color: var(--dark-blue); font-weight: 600; font-size: 0.9rem;">Email Address</label>
-            <input type="email" id="email" name="email" required style="width: 100%; height: 40px; padding: 0 12px; border: 1px solid var(--gray); border-radius: 4px; font-size: 1rem;" placeholder="you@example.com">
+            <input type="email" id="email" name="email" required style="width: 100%; height: 40px; padding: 0 12px; border: 1px solid var(--gray); border-radius: 4px; font-size: 1rem;" placeholder="you@example.com" required>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 6px;">
