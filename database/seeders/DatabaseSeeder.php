@@ -11,15 +11,13 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    { // <-- Added this missing opening curly brace!
+    {
 
-        // 1. Clear out any old data to prevent duplication errors
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('products')->truncate();
         DB::table('categories')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        // 2. Insert Categories and grab their IDs dynamically
         $shoesId = DB::table('categories')->insertGetId(['name' => 'Shoes']);
         $helmetsId = DB::table('categories')->insertGetId(['name' => 'Helmets']);
         $ballsId = DB::table('categories')->insertGetId(['name' => 'Balls']);
@@ -28,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $equipmentId = DB::table('categories')->insertGetId(['name' => 'Equipment']);
         $trainingGearId = DB::table('categories')->insertGetId(['name' => 'Training gear']);
 
-        // 3. Insert All 9 Products mapped cleanly to those variables
+
         DB::table('products')->insert([
             [
                 'name' => 'adidas Euro16 Top Soccer Ball',
@@ -110,7 +108,115 @@ class DatabaseSeeder extends Seeder
                 'image_path' => 'tracksuit.jpg',
                 'is_featured' => 0,
                 'category_id' => $pantsId,
-            ]
+            ],
+            [
+                'name' => 'Nike Air Zoom Running Shoes',
+                'description' => 'Lightweight mesh running shoe featuring responsive Zoom Air performance units.',
+                'price' => 180.00,
+                'sale_price' => 145.00,
+                'image_path' => 'runningShoes.jpg',
+                'is_featured' => 1,
+                'category_id' => $shoesId,
+            ],
+            [
+                'name' => 'Adidas Predator Football Boots',
+                'description' => 'Control the pitch with high-grip strike paths and firm ground optimization layers.',
+                'price' => 240.00,
+                'sale_price' => null,
+                'image_path' => 'footyBoots.jpg',
+                'is_featured' => 0,
+                'category_id' => $shoesId,
+            ],
+            [
+                'name' => 'Puma Smash Classic Sneakers',
+                'description' => 'Retro leather styling designed for relaxed comfort lifestyle wear layouts.',
+                'price' => 90.00,
+                'sale_price' => 65.00,
+                'image_path' => 'runningShoes.jpg',
+                'is_featured' => 0,
+                'category_id' => $shoesId,
+            ],
+            [
+                'name' => 'Spalding TF-1000 Basketball',
+                'description' => 'Pro-grade indoor leather basketball providing maximum deep channel fingertip controls.',
+                'price' => 95.00,
+                'sale_price' => null,
+                'image_path' => 'soccerBall.jpg',
+                'is_featured' => 1,
+                'category_id' => $ballsId,
+            ],
+            [
+                'name' => 'Gilbert Synergie Netball',
+                'description' => 'Official size match play netball with superior grip textured outer surfaces.',
+                'price' => 38.00,
+                'sale_price' => 29.00,
+                'image_path' => 'soccerBall.jpg',
+                'is_featured' => 0,
+                'category_id' => $ballsId,
+            ],
+            [
+                'name' => 'Giro Fixture Cycling Helmet',
+                'description' => 'Mountain bike protection featuring an extended hardbody structural rear layout cover.',
+                'price' => 85.00,
+                'sale_price' => 72.00,
+                'image_path' => 'skateHelmet.jpg',
+                'is_featured' => 0,
+                'category_id' => $helmetsId,
+            ],
+            [
+                'name' => 'Wilson Pro Staff Tennis Racket',
+                'description' => 'Precision braided graphite core frame providing surgical control profiles.',
+                'price' => 320.00,
+                'sale_price' => null,
+                'image_path' => 'waterBottle.jpg',
+                'is_featured' => 1,
+                'category_id' => $equipmentId,
+            ],
+            [
+                'name' => 'Everlast Speed Skipping Rope',
+                'description' => 'High-velocity plastic speed cable fitted with smooth rotation ball bearing sockets.',
+                'price' => 22.00,
+                'sale_price' => 15.00,
+                'image_path' => 'waterBottle.jpg',
+                'is_featured' => 0,
+                'category_id' => $equipmentId,
+            ],
+            [
+                'name' => 'Under Armour Tech Training Shorts',
+                'description' => 'Quick-drying ultra-soft performance gym shorts utilizing sweat-wicking materials.',
+                'price' => 40.00,
+                'sale_price' => null,
+                'image_path' => 'tracksuit.jpg',
+                'is_featured' => 0,
+                'category_id' => $pantsId,
+            ],
+            [
+                'name' => 'Nike Dri-FIT Legend Tee',
+                'description' => 'Moisture-wicking active t-shirt engineered to endure heavy cross-training sets.',
+                'price' => 35.00,
+                'sale_price' => 25.00,
+                'image_path' => 'blackTop.jpg',
+                'is_featured' => 1,
+                'category_id' => $topsId,
+            ],
+            [
+                'name' => 'Resistance Loop Bands 5-Pack',
+                'description' => 'Premium heavy-duty latex bands spanning extra light to extra heavy fitness loads.',
+                'price' => 25.00,
+                'sale_price' => 19.95,
+                'image_path' => 'waterBottle.jpg',
+                'is_featured' => 0,
+                'category_id' => $trainingGearId,
+            ],
+            [
+                'name' => 'Aussie Strength Yoga Mat',
+                'description' => 'High-density eco-friendly padded non-slip texture cushioning baseline panel.',
+                'price' => 60.00,
+                'sale_price' => null,
+                'image_path' => 'waterBottle.jpg',
+                'is_featured' => 0,
+                'category_id' => $trainingGearId,
+            ],
         ]);
     }
 }

@@ -23,25 +23,28 @@
   <div class="product-grid">
     @foreach($featuredProducts as $product)
     <article class="product-card">
-      <a href="{{ url('/products/' . $product->id) }}" style="text-decoration: none; display: flex; flex-direction: column; height: 100%; width: 100%; align-items: center; justify-content: space-between;">
-
+      <a href="{{ url('/products/' . $product->id) }}" class="product-card-link">
         <h3 class="visually-hidden">{{ $product->name }}</h3>
 
-        <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
-
-        <div class="price-container">
-          @if($product->sale_price)
-          <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
-          <span class="was-price">
-            <span class="was-label">WAS</span>
-            <del class="original-price">${{ number_format($product->price, 2) }}</del>
-          </span>
-          @else
-          <span class="price">${{ number_format($product->price, 2) }}</span>
-          @endif
+        <div class="product-img-wrapper">
+          <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
         </div>
 
-        <p class="product-name">{{ $product->name }}</p>
+        <div class="product-info-wrapper">
+          <p class="product-name">{{ $product->name }}</p>
+
+          <div class="price-container">
+            @if($product->sale_price)
+            <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
+            <span class="was-price">
+              <span class="was-label">WAS</span>
+              <del class="original-price">${{ number_format($product->price, 2) }}</del>
+            </span>
+            @else
+            <span class="price">${{ number_format($product->price, 2) }}</span>
+            @endif
+          </div>
+        </div>
       </a>
     </article>
     @endforeach
@@ -66,8 +69,6 @@
         <li><img src="{{ asset('images/logo-adidas.png') }}" alt="Adidas logo" /></li>
         <li><img src="{{ asset('images/logo-skins.png') }}" alt="Skins logo" /></li>
         <li><img src="{{ asset('images/logo-asics.png') }}" alt="Asics logo" /></li>
-        <li><img src="{{ asset('images/logo-newbalance.png') }}" alt="New Balance logo" /></li>
-        <li><img src="{{ asset('images/logo-wilson.png') }}" alt="Wilson logo" /></li>
       </ul>
     </div>
   </section>

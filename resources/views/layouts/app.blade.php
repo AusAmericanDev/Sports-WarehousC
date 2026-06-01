@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -47,11 +46,9 @@
                         <li class="nav-spacer" aria-hidden="true"></li>
                         <li class="nav-login">
                             <a href="#">
-                                <i class="fa-solid fa-lock" aria-hidden="true"></i>
-                                Login
+                                <i class="fa-solid fa-lock" aria-hidden="true"></i> Login
                             </a>
                         </li>
-
                         <li class="nav-cart">
                             <a href="{{ route('cart.index') }}">
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -152,7 +149,6 @@
             </div>
         </footer>
     </div>
-
     <script src="{{ asset('js/slideshow.js') }}" defer></script>
 </body>
 
