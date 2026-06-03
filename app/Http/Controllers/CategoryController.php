@@ -10,13 +10,16 @@ class CategoryController extends Controller
 {
     public function show($id)
     {
-        // 1. Find the specific category from the database using the ID, or crash gracefully with a 404 if it doesn't exist
+        // 1. Find the specific category from the database using the ID
         $category = Category::findOrFail($id);
 
         // 2. Fetch only the products where the category_id matches this ID
         $products = Product::where('category_id', $id)->get();
 
-        // 3. Pass both variables over to your category.blade.php template view file
-        return view('category', compact('category', 'products'));
+        // FIX: Pull ALL categories from the database so the global header navbar loop doesn't break!
+        $categories = Category::all();
+
+        // Pass all three variables over to your template view file cleanly
+        return view('category', compact('category', 'products', 'categories'));
     }
 }

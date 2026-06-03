@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    @vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -63,34 +63,46 @@
             </div>
 
             @if(!Route::is('contact.index'))
-            <div class="header-main">
-                <div class="header-logo">
-                    <img src="{{ asset('images/sports-warehouse-logo-600.png') }}" alt="Sports Warehouse logo" />
+            <div class="header-main flex flex-col box-border">
+
+                <div class="w-full flex flex-row justify-between items-center mb-4">
+                    <div class="header-logo">
+                        <img src="{{ asset('images/sports-warehouse-logo-600.png') }}" alt="Sports Warehouse logo" />
+                    </div>
+
+                    <search class="search-container">
+                        <form action="{{ url('/search') }}" method="GET" role="search" class="search-form">
+                            <label for="site-search" class="visually-hidden">Search products</label>
+                            <div class="search">
+                                <input id="site-search" name="query" type="search" placeholder="Search products" value="{{ request('query') }}" />
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span class="search-icon-stack" aria-hidden="true">
+                                    <i class="fa-solid fa-circle search-icon-bg"></i>
+                                    <i class="fa-solid fa-magnifying-glass search-icon-fg"></i>
+                                </span>
+                                <span class="visually-hidden">Submit search</span>
+                            </button>
+                        </form>
+                    </search>
                 </div>
-                <search class="search-container">
-                    <form action="{{ url('/search') }}" method="GET" role="search" class="search-form">
-                        <label for="site-search" class="visually-hidden">Search products</label>
-                        <div class="search">
-                            <input id="site-search" name="query" type="search" placeholder="Search products" value="{{ request('query') }}" />
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span class="search-icon-stack" aria-hidden="true">
-                                <i class="fa-solid fa-circle search-icon-bg"></i>
-                                <i class="fa-solid fa-magnifying-glass search-icon-fg"></i>
-                            </span>
-                            <span class="visually-hidden">Submit search</span>
-                        </button>
-                    </form>
-                </search>
+
+                <section class="product-categories w-[645px] max-w-[645px] min-w-[645px] h-11 p-0 m-0 block overflow-hidden box-border bg-[#0c232e] rounded-full">
+                    <div class="figma-tight-left-nav flex flex-row justify-stretch items-stretch no-wrap w-full h-full px-4 box-border">
+
+                        @foreach(\App\Models\Category::all() as $category)
+                        <a href="/category/{{ $category->id }}"
+                            class="grow basis-0 inline-block text-[16px] text-white font-medium font-sans no-underline whitespace-nowrap text-center h-full leading-[45px] opacity-100 hover:opacity-80 transition-opacity duration-200">
+                            {{ $category->name }}
+                        </a>
+                        @endforeach
+
+                    </div>
+                </section>
+
             </div>
 
-            <section class="product-categories" aria-label="Product categories">
-                <div class="categories">
-                    @foreach($categories as $category)
-                    <a href="/category/{{ $category->id }}">{{ $category->name }}</a>
-                    @endforeach
-                </div>
-            </section>
+            <div style="clear: both !important;"></div>
             @endif
         </header>
 

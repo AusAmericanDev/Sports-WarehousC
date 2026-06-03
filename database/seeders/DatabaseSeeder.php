@@ -206,7 +206,7 @@ class DatabaseSeeder extends Seeder
                 'sale_price' => 19.95,
                 'image_path' => 'ResistanceBands.jpg',
                 'is_featured' => 0,
-                'category_id' => $equipmentId,
+                'category_id' => $trainingGearId,
             ],
             [
                 'name' => 'Aussie Strength Yoga Mat',
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
                 'sale_price' => null,
                 'image_path' => 'yoga.jpg',
                 'is_featured' => 0,
-                'category_id' => $equipmentId,
+                'category_id' => $trainingGearId,
             ],
         ]);
     }
