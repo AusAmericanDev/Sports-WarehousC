@@ -90,9 +90,16 @@
                 <section class="product-categories w-[645px] max-w-[645px] min-w-[645px] h-11 p-0 m-0 block overflow-hidden box-border bg-[#0c232e] rounded-full">
                     <div class="figma-tight-left-nav flex flex-row justify-stretch items-stretch no-wrap w-full h-full px-4 box-border">
 
+                        @php
+                        $activeCategory = null;
+                        if (request()->route() && request()->route()->getParameter('id')) {
+                        $activeCategory = request()->route()->getParameter('id');
+                        }
+                        @endphp
+
                         @foreach(\App\Models\Category::all() as $category)
                         <a href="/category/{{ $category->id }}"
-                            class="grow basis-0 inline-block text-[16px] text-white font-medium font-sans no-underline whitespace-nowrap text-center h-full leading-[45px] opacity-100 hover:opacity-80 transition-opacity duration-200">
+                            class="grow basis-0 inline-block text-[16px] font-medium font-sans no-underline whitespace-nowrap text-center h-full leading-[45px] transition-all duration-200 {{ $activeCategory == $category->id ? 'bg-[#00aced] text-white rounded-full' : 'text-white opacity-100 hover:opacity-80' }}">
                             {{ $category->name }}
                         </a>
                         @endforeach
