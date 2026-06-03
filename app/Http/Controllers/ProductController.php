@@ -11,20 +11,23 @@ class ProductController extends Controller
 {
     public function show($id)
     {
+        // 1. Pulls all active database records cleanly
         $categories = Category::all();
         $product = Product::findOrFail($id);
-        return view('products.product', compact('product', 'categories'));
+
+        // FIX: Changed from 'products.product' to 'products.show' to load your fixed inline template file!
+        return view('products.show', compact('product', 'categories'));
     }
 
     public function search(Request $request)
     {
         $searchTerm = $request->input('query');
-        $singularTerm = \Illuminate\Support\Str::singular($searchTerm);
-        $categories = \App\Models\Category::all();
+        $singularTerm = Str::singular($searchTerm);
+        $categories = Category::all();
+
         $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')
             ->orWhere('name', 'LIKE', '%' . $singularTerm . '%')
             ->get();
-
 
         return view('products.search', [
             'products' => $products,
