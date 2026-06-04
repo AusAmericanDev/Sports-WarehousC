@@ -68,6 +68,9 @@
         <li><img src="{{ asset('images/logo-adidas.png') }}" alt="Adidas logo" /></li>
         <li><img src="{{ asset('images/logo-skins.png') }}" alt="Skins logo" /></li>
         <li><img src="{{ asset('images/logo-asics.png') }}" alt="Asics logo" /></li>
+        <li><img src="{{ asset('images/logo-newbalance.png') }}" alt="New Balance logo" /></li>
+        <li><img src="{{ asset('images/logo-wilson.png') }}" alt="Wilson logo" /></li>
+
       </ul>
     </div>
   </section>
