@@ -10,7 +10,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/category/{id}', [CategoryController::class, 'show']);
 
-Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 Route::get('/search', [ProductController::class, 'search'])->name('products.search');
 
