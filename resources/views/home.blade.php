@@ -8,7 +8,7 @@
   <aside class="hero-promo" aria-hidden="true">
     <p class="hero-small-text">View our brand new range of</p>
     <p class="hero-title">Sports balls</p>
-    <a href="#" class="hero-button">Shop now</a>
+    <a href="{{ url('/category/3') }}" class="hero-button">Shop now</a>
   </aside>
   <div class="hero-dots" role="group" aria-label="Slideshow controls">
     <button type="button" class="hero-dot is-active" aria-label="Show slide 1"></button>
