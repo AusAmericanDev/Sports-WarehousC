@@ -11,12 +11,10 @@ class ProductController extends Controller
 {
     public function show($id)
     {
-        // 1. Pulls all active database records cleanly
         $categories = Category::all();
         $product = Product::findOrFail($id);
 
-        // FIX: Changed from 'products.product' to 'products.show' to load your fixed inline template file!
-        return view('products.show', compact('product', 'categories'));
+        return view('product.product', compact('product', 'categories'));
     }
 
     public function search(Request $request)
@@ -29,7 +27,7 @@ class ProductController extends Controller
             ->orWhere('name', 'LIKE', '%' . $singularTerm . '%')
             ->get();
 
-        return view('products.search', [
+        return view('search', [
             'products' => $products,
             'categories' => $categories,
             'query' => $searchTerm,

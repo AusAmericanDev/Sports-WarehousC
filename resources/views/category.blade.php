@@ -15,8 +15,6 @@
                 </div>
 
                 <div class="product-info-wrapper">
-                    <p class="product-name">{{ $product->name }}</p>
-
                     <div class="price-container">
                         @if($product->sale_price)
                         <span class="current-price">${{ number_format($product->sale_price, 2) }}</span>
@@ -28,6 +26,7 @@
                         <span class="price">${{ number_format($product->price, 2) }}</span>
                         @endif
                     </div>
+                    <p class="product-name">{{ $product->name }}</p>
                 </div>
             </a>
         </article>

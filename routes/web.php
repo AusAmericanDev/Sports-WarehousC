@@ -28,7 +28,7 @@ Route::get('/contact', function () {
 Route::get('/products', function () {
     $products = \App\Models\Product::all();
     $categories = \App\Models\Category::all();
-    return view('products.index', compact('products', 'categories'));
+    return view('product.index', compact('products', 'categories'));
 })->name('products.index');
 
 Route::get('/about', function () {
