@@ -41,7 +41,7 @@
             <h3 style="color: var(--dark-blue); font-weight: 400; margin-bottom: 15px;">
                 Total: <span style="color: var(--orange); font-weight: bold;">${{ number_format($total, 2) }}</span>
             </h3>
-            <a href="#" style="background: var(--mid-blue); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+            <a href="{{ route('checkout.index') }}" style="background: var(--mid-blue); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
                 Proceed to Checkout
             </a>
         </div>

@@ -23,7 +23,6 @@ class CheckoutController extends Controller
 
     public function placeOrder(Request $request)
     {
-        // Server-side validation fallback
         $request->validate([
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
@@ -41,7 +40,6 @@ class CheckoutController extends Controller
             $total += ($item['sale_price'] ?? $item['price']) * $item['quantity'];
         }
 
-        // Save order metadata details
         $order = Order::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -54,7 +52,6 @@ class CheckoutController extends Controller
             'total_price' => $total,
         ]);
 
-        // Save each item individual line record map
         foreach ($cart as $id => $details) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -64,7 +61,6 @@ class CheckoutController extends Controller
             ]);
         }
 
-        // Flush out current session basket entries
         session()->forget('cart');
 
         return redirect()->route('checkout.confirmation', $order->id);
@@ -73,7 +69,7 @@ class CheckoutController extends Controller
     public function confirmation($id)
     {
         $categories = Category::all();
-        $order = Order::findOrFail($id); // Order ID acts as your assigned order number reference
+        $order = Order::findOrFail($id);
         return view('checkout.confirmation', compact('categories', 'order'));
     }
 }
