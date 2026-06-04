@@ -8,7 +8,7 @@
             Search Results for "{{ $searchTerm }}"
         </h1>
 
-        <div class="products-grid">
+        <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; width: 100%;">
             @forelse($products as $product)
             <article class="product-card">
                 <a href="{{ url('/products/' . $product->id) }}" class="product-card-link">
