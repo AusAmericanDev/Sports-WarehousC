@@ -27,7 +27,7 @@ class ProductController extends Controller
             ->orWhere('name', 'LIKE', '%' . $singularTerm . '%')
             ->get();
 
-        return view('search', [
+        return view('product.search', [
             'products' => $products,
             'categories' => $categories,
             'query' => $searchTerm,
