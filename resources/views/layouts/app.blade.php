@@ -46,7 +46,7 @@
                         <li><a href="{{ route('products.index') }}">View Products</a></li>
                         <li class="nav-spacer" aria-hidden="true"></li>
                         <li class="nav-login">
-                            <a href="#">
+                            <a href="{{ route('login') }}">
                                 <i class="fa-solid fa-lock" aria-hidden="true"></i> Login
                             </a>
                         </li>

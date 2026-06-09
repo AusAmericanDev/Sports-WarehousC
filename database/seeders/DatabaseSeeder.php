@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,12 +13,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
+        // 1. Safe Truncate Sequence with Foreign Key Protection Disabled
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('products')->truncate();
         DB::table('categories')->truncate();
+        DB::table('users')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
+        // 2. Inject Exact Assignment Marker Credentials straight into the 'email' column
+        DB::table('users')->insert([
+            [
+                'name' => 'Staff Administrator',
+                'email' => 'admin',
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        ]);
+
+        // 3. Category ID Captures
         $shoesId = DB::table('categories')->insertGetId(['name' => 'Shoes']);
         $helmetsId = DB::table('categories')->insertGetId(['name' => 'Helmets']);
         $ballsId = DB::table('categories')->insertGetId(['name' => 'Balls']);
@@ -26,7 +40,7 @@ class DatabaseSeeder extends Seeder
         $equipmentId = DB::table('categories')->insertGetId(['name' => 'Equipment']);
         $trainingGearId = DB::table('categories')->insertGetId(['name' => 'Training gear']);
 
-
+        // 4. Inventory Catalog Inserter
         DB::table('products')->insert([
             [
                 'name' => 'adidas Euro16 Top Soccer Ball',
