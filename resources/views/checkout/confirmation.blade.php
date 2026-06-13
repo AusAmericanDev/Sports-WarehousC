@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <div class="confirmation-container" style="max-width: 600px; margin: 60px auto; padding: 40px; text-align: center; font-family: 'Open Sans', sans-serif; border: 1px solid #e2e8f0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: #white;">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <main style="max-width: 960px; margin: 0 auto; padding: 20px;">
