@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <main style="max-width: 600px; margin: 40px auto; padding: 20px; font-family: 'Open Sans', sans-serif;">
@@ -12,7 +12,7 @@
         </div>
 
         <div style="display:flex; gap:10px; justify-content:flex-end;">
-            <a href="{{ route('admin.dashboard') }}" style="background:#e2e8f0; color:#333; padding:10px 20px; text-decoration:none; border-radius:4px;">Cancel</a>
+            <a href="{{ route('dashboard') }}" style="background:#e2e8f0; color:#333; padding:10px 20px; text-decoration:none; border-radius:4px;">Cancel</a>
             <button type="submit" style="background:#0c232e; color:white; padding:10px 20px; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Save Category</button>
         </div>
     </form>

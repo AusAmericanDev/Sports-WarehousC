@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <main style="display: flex; gap: 40px; max-width: 1200px; margin: 30px auto; padding: 0 20px; align-items: flex-start; font-family: sans-serif;">

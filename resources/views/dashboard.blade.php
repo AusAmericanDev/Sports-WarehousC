@@ -1,13 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <main style="max-width: 1000px; margin: 40px auto; padding: 20px; font-family: 'Open Sans', sans-serif;">
+
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 30px;">
         <h2 style="color: #333; margin:0;">Staff Control Panel</h2>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" style="background:#ef4444; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;">Logout</button>
-        </form>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <p style="color:#555; margin:0; font-weight:600;">Logged in as: {{ auth()->user()->name }}</p>
+
+            <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+                @csrf
+                <button type="submit" style="background:#ef4444; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight: 600;">
+                    Logout
+                </button>
+            </form>
+        </div>
     </div>
 
     @if(session('success'))
@@ -17,7 +24,8 @@
     @endif
 
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="border:1px solid #e2e8f0; padding:20px; border-radius:6px; background:#white;">
+
+        <div style="border:1px solid #e2e8f0; padding:20px; border-radius:6px; background:#fff;">
             <h3 style="color:#0284c7; margin-top:0;">Manage Categories</h3>
             <p style="color:#666; font-size:0.9rem;">Add, edit, or remove store classification categories.</p>
             <div style="margin-top:20px; display:flex; gap:10px;">
@@ -26,7 +34,7 @@
             </div>
         </div>
 
-        <div style="border:1px solid #e2e8f0; padding:20px; border-radius:6px; background:#white;">
+        <div style="border:1px solid #e2e8f0; padding:20px; border-radius:6px; background:#fff;">
             <h3 style="color:#0284c7; margin-top:0;">Manage Inventory Items</h3>
             <p style="color:#666; font-size:0.9rem;">Modify warehouse items, manage dynamic sorting pricing, and view stock lines.</p>
             <div style="margin-top:20px; display:flex; gap:10px;">
@@ -34,10 +42,11 @@
                 <a href="{{ route('products.create') }}" style="background:#edf2f7; color:#333; text-decoration:none; padding:10px 20px; border-radius:4px; font-size:0.9rem; font-weight:600;">+ Add New</a>
             </div>
         </div>
+
     </div>
 
     <div style="margin-top:30px; text-align:center; border-top:1px solid #eee; padding-top:20px;">
-        <a href="{{ route('admin.password') }}" style="color:#475569; text-decoration:underline; font-size:0.9rem;">🔒 Change Security Password</a>
+        <a href="{{ route('profile.edit') }}" style="color:#475569; text-decoration:underline; font-size:0.9rem;">🔒 Account Security & Profile Settings</a>
     </div>
 </main>
 @endsection

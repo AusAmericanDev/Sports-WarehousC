@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.storefront')
 
 @section('content')
 <main style="max-width: 1100px; margin: 40px auto; padding: 20px; font-family: 'Open Sans', sans-serif;">
@@ -56,7 +56,7 @@
     </div>
 
     <div style="margin-top: 25px;">
-        <a href="{{ route('admin.dashboard') }}" style="color: #475569; text-decoration: none; font-size: 0.9rem; font-weight: 600;">➔ Return to Control Panel</a>
+        <a href="{{ route('dashboard') }}" style="color: #475569; text-decoration: none; font-size: 0.9rem; font-weight: 600;">➔ Return to Control Panel</a>
     </div>
 </main>
 @endsection
