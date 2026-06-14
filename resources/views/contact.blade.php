@@ -9,7 +9,13 @@
         Have a question about our sports gear or need help with an order? Send us a message and our team will get back to you shortly.
     </p>
 
-    <form action="#" method="POST" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    @if(session('success'))
+    <div style="background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+        <strong>Success!</strong> {{ session('success') }}
+    </div>
+    @endif
+
+    <form action="{{ route('contact.index') }}" method="POST" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         @csrf
 
         <div style="display: flex; flex-direction: column; gap: 6px;">

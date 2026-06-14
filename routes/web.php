@@ -9,13 +9,11 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AuthController;
 
+/* PUBLIC ROUTES (Accessible by anyone) */
 
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/category/{id}', [ProductController::class, 'showByCategory'])->name('storefront.category');
-
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-
 Route::get('/search', [ProductController::class, 'search'])->name('products.search');
 
 Route::get('/products', function () {
@@ -24,29 +22,38 @@ Route::get('/products', function () {
     return view('product.index', compact('products', 'categories'));
 })->name('storefront.products');
 
-
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-
-Route::get('/contact', function () {
-    $categories = \App\Models\Category::all();
-    return view('contact', compact('categories'));
-})->name('contact.index');
 
 Route::get('/about', function () {
     $categories = \App\Models\Category::all();
     return view('about', compact('categories'));
 })->name('about.index');
 
-
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
 Route::get('/order-confirmation/{id}', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
 
+//  PUBLIC CONTACT ROUTES (Moved out of the auth group)
+Route::get('/contact', function () {
+    $categories = \App\Models\Category::all();
+    return view('contact', compact('categories'));
+})->name('contact.index');
 
-/* 🔒 BREEZE CORE DASHBOARD ROOT */
-/* 🔒 BREEZE CORE DASHBOARD ROOT */
+Route::post('/contact', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'message' => 'required',
+    ]);
+
+    return back()->with('success', 'Thanks for reaching out!');
+});
+
+
+/* PROTECTED DASHBOARD & ADMIN ROUTES (Requires Login) */
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
