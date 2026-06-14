@@ -40,7 +40,7 @@
             </div>
         </div>
         <div style="margin-bottom:15px;">
-            <label style="display:block; margin-bottom:5px; font-weight:600; color:#444;">Item Specification Description</label>
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#444;">Item Specification Description *</label>
             <textarea name="description" rows="4" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px; font-family: inherit;"></textarea>
         </div>
         <div style="margin-bottom:15px;">

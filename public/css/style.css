@@ -1377,4 +1377,119 @@ button:focus-visible {
         background: var(--black-3, rgba(0, 0, 0, 0.3));
         margin-right: 8px;
     }
+
+    /* ── Sports Warehouse Profile Cards ── */
+    .sw-card {
+        background: #fff;
+        border-radius: 12px;
+        border: 1px solid #e4e4e4;
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .sw-card h2 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 0.3rem;
+    }
+
+    .sw-card p.desc {
+        font-size: 0.85rem;
+        color: #777;
+        margin-bottom: 1.25rem;
+    }
+
+    .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .field-row.single {
+        grid-template-columns: 1fr;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .field label {
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #444;
+    }
+
+    .field input {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 0.55rem 0.85rem;
+        font-size: 0.9rem;
+        color: #222;
+        width: 100%;
+        font-family: inherit;
+        transition:
+            border-color 0.15s,
+            box-shadow 0.15s;
+    }
+
+    .field input:focus {
+        outline: none;
+        border-color: #00b0f0;
+        box-shadow: 0 0 0 3px rgba(0, 176, 240, 0.15);
+    }
+
+    .btn-sw-primary {
+        background: #00b0f0;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.4rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: background 0.15s;
+    }
+
+    .btn-sw-primary:hover {
+        background: #009fd8;
+    }
+
+    .btn-sw-danger {
+        background: #fff;
+        color: #c0392b;
+        border: 1.5px solid #c0392b;
+        border-radius: 8px;
+        padding: 0.6rem 1.4rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: background 0.15s;
+    }
+
+    .btn-sw-danger:hover {
+        background: #fdf0f0;
+    }
+
+    .danger-box {
+        background: #fdf0f0;
+        border: 1px solid #f5c0c0;
+        border-radius: 8px;
+        padding: 0.85rem 1rem;
+        font-size: 0.85rem;
+        color: #7b2d2d;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        .field-row {
+            grid-template-columns: 1fr;
+        }
+    }
 }
