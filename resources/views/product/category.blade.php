@@ -32,7 +32,6 @@
         </article>
         @empty
         <p class="no-products">
-            No products are currently available in this section.
         </p>
         @endforelse
     </div>

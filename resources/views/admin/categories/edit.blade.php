@@ -1,5 +1,5 @@
 @extends('layouts.storefront')
-// This view is for editing an existing store category in the admin panel. It includes a form with a single input for the category name and buttons to save or cancel.
+
 @section('content')
 <main style="max-width: 600px; margin: 40px auto; padding: 20px; font-family: 'Open Sans', sans-serif;">
     <h2 style="color: #333; margin-bottom: 20px;">Edit Store Category</h2>

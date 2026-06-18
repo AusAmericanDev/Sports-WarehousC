@@ -1,5 +1,5 @@
 @extends('layouts.storefront')
-// This view displays a list of store categories in the admin panel. It includes a table with category IDs, names, and action buttons to edit or delete each category. There's also a button to add a new category and a link to return to the control panel.
+
 @section('content')
 <main style="max-width: 1000px; margin: 40px auto; padding: 20px; font-family: 'Open Sans', sans-serif;">
 
