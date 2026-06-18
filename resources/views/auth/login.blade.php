@@ -9,19 +9,12 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div style="background: #fef08a; color: #854d0e; padding: 12px; border-radius: 4px; margin-bottom: 25px; font-size: 0.9rem; border: 1px solid #eab308; line-height: 1.5;">
-        <strong>⚠️ Grading Credentials Note:</strong><br>
-        Please log in using:<br>
-        • <strong>Email / Username:</strong> admin@admin.com<br>
-        • <strong>Password:</strong> password
-    </div>
-
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <div style="margin-bottom: 20px;">
             <label for="email" style="display: block; color: #475569; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px;">Email Address</label>
-            <input id="email" type="email" name="email" value="admin@admin.com" required autofocus autocomplete="username"
+            <input id="email" type="text" name="email" value="admin" required autofocus autocomplete="username"
                 style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-family: 'Open Sans', sans-serif; font-size: 0.95rem; box-sizing: border-box;" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
