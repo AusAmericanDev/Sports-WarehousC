@@ -37,8 +37,10 @@ class CheckoutController extends Controller
         $cart = session()->get('cart', []);
         $total = 0;
         foreach ($cart as $item) {
-            $total += ($item['sale_price'] ?? $item['price']) * $item['quantity'];
+            $total += $item['price'] * $item['quantity'];
         }
+
+        $total += 5.00;
 
         $order = Order::create([
             'first_name' => $request->first_name,

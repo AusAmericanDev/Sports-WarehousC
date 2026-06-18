@@ -1,60 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sports Warehouse – Online Store
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-stack e-commerce web application built with Laravel 12 for Sports Warehouse, an Illawarra-based sporting goods retailer. This project was developed as part of the ICT50220 Diploma of IT (Front & Back End Web Development) at TAFE NSW.
 
-## About Laravel
+The application allows customers to browse and purchase sports equipment and apparel online, and allows staff to manage the product catalogue through an admin panel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Customer-Facing
 
-## Learning Laravel
+- Browse all products and filter by category
+- Search products by name
+- View individual product detail pages
+- Add and remove items from a session-based shopping cart
+- Checkout with shipping and payment details
+- Order confirmation page with order summary
+- Contact form
+- About page
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Admin Panel (Requires Login)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Create, edit, and delete product categories
+- Create, edit, and delete products (name, description, price, sale price, image, featured flag)
+- User registration, login, and profile management via Laravel Breeze
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Tech Stack
 
-### Premium Partners
+- **Framework:** Laravel 12
+- **Authentication:** Laravel Breeze
+- **Database:** SQLite (default) — compatible with MySQL 8.0+
+- **Frontend:** Blade templates, Tailwind CSS, Vite
+- **PHP:** 8.2+
+- **Server:** Apache 2.4+ with PHP 8.1+
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## Setup Instructions
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Clone the repository
 
-## Code of Conduct
+```bash
+git clone <your-repo-url>
+cd sports-warehouse
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2. Install dependencies
 
-## Security Vulnerabilities
+```bash
+composer install
+npm install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Configure environment
 
-## License
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Sports-WarehousC
+### 4. Set up the database
+
+```bash
+php artisan migrate:fresh
+```
+
+### 5. Build frontend assets
+
+```bash
+npm run build
+```
+
+### 6. Start the development server
+
+```bash
+php artisan serve
+```
+
+Visit https://navy03.ho.web.tafensw.edu.au/ in your browser.
+
+---
+
+## Admin Access
+
+To access the admin panel at `/admin/products` and `/admin/categories`, you must first register an account at `/register` and log in.
+
+---
+
+## Project Structure
+
+```
+app/
+├── Http/Controllers/
+│   ├── CartController.php        # Session-based cart logic
+│   ├── CategoryController.php    # Admin CRUD for categories
+│   ├── CheckoutController.php    # Order placement and confirmation
+│   ├── HomeController.php        # Homepage with featured products
+│   └── ProductController.php     # Product browsing, search, admin CRUD
+├── Models/
+│   ├── Category.php
+│   ├── Order.php
+│   ├── OrderItem.php
+│   └── Product.php
+database/
+└── migrations/                   # Tables: users, categories, products, orders, order_items
+resources/views/
+├── admin/                        # Admin product and category management views
+├── cart/                         # Shopping cart view
+├── checkout/                     # Checkout form and order confirmation
+├── product/                      # Product listing, category, search, detail views
+└── layouts/                      # Storefront and auth layouts
+```
+
+---
+
+## Database Schema
+
+| Table         | Description                            |
+| ------------- | -------------------------------------- |
+| `users`       | Registered staff/admin accounts        |
+| `categories`  | Product categories                     |
+| `products`    | Products with price, sale price, image |
+| `orders`      | Customer orders with shipping/payment  |
+| `order_items` | Individual line items per order        |
+
+---
+
+## Notes
+
+- Pricing includes a flat $5.00 shipping fee applied at checkout
+- GST (10%) is displayed on the checkout page as included in the total
+- Payment details are stored directly in the database as per assessment requirements
+- Product images are served from the `public/images/` directory

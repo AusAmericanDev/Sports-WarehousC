@@ -37,7 +37,7 @@
                     </td>
                     <td style="padding:12px 15px; text-align:center;">
                         <span style="padding:4px 8px; border-radius:12px; font-size:0.75rem; font-weight:bold; background: {{ $product->is_featured ? '#dcfce7; color:#166534;' : '#f1f5f9; color:#475569;' }}">
-                            {{ $product->is_featured ? 'Yes' : 'No' }}
+                            {{ $product->is_featured ? '✔️' : '' }}
                         </span>
                     </td>
                     <td style="padding:12px 15px; text-align:right; display:flex; gap:8px; justify-content:flex-end; align-items: center;">
