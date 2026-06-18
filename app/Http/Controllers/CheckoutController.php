@@ -8,7 +8,7 @@ use App\Models\OrderItem;
 use App\Models\Category;
 
 class CheckoutController extends Controller
-{
+{ // 1. Display the checkout page with cart items and categories for navigation
     public function index()
     {
         $categories = Category::all();
@@ -17,10 +17,10 @@ class CheckoutController extends Controller
         if (empty($cart)) {
             return redirect()->back()->with('error', 'Your shopping cart is empty!');
         }
-
+        //  Pass the categories and cart data to the checkout view for rendering
         return view('checkout.index', compact('categories', 'cart'));
     }
-
+    // 2. Handle the form submission to place an order and save it to the database
     public function placeOrder(Request $request)
     {
         $request->validate([
@@ -65,7 +65,7 @@ class CheckoutController extends Controller
 
         return redirect()->route('checkout.confirmation', $order->id);
     }
-
+    // 3. Display the order confirmation page with order details and categories for navigation
     public function confirmation($id)
     {
         $categories = Category::all();

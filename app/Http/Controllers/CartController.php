@@ -30,7 +30,7 @@ class CartController extends Controller
                 "image_path" => $product->image_path
             ];
         }
-
+        //  Save the cart back to the session
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }

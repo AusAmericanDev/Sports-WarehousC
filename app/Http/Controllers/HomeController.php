@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
-{
+{ // 1. Display the home page with featured products and categories for navigation
     public function index()
     {
 

@@ -9,27 +9,27 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-
+    // 1. Display a list of all products in the admin panel
     public function index()
     {
         $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
-
+    // 2. Display the details of a single product on the product page
     public function show($id)
     {
         $categories = Category::all();
         $product = Product::findOrFail($id);
         return view('product.product', compact('product', 'categories'));
     }
-
+    // 3. Display products filtered by category on the category page
     public function showByCategory($id)
     {
         $category = Category::findOrFail($id);
         $products = Product::where('category_id', $id)->get();
         return view('product.category', compact('category', 'products'));
     }
-
+    //  4. Handle the search functionality to find products by name on the search results page
     public function search(Request $request)
     {
         $searchTerm = $request->input('query');
@@ -47,13 +47,13 @@ class ProductController extends Controller
             'searchTerm' => $searchTerm
         ]);
     }
-
+    // 5. Show the form to create a new product in the admin panel
     public function create()
     {
         $categories = Category::all();
         return view('admin.products.create', compact('categories'));
     }
-
+    // 6. Handle the form submission to store a new product in the database
     public function store(Request $request)
     {
         $request->validate([
@@ -77,7 +77,7 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Inventory item added successfully!');
     }
-
+    // 7. Show the form to edit an existing product in the admin panel
     public function edit($id)
     {
         $product = Product::findOrFail($id);
@@ -85,7 +85,7 @@ class ProductController extends Controller
 
         return view('admin.products.edit', compact('product', 'categories'));
     }
-
+    // 8. Handle the form submission to update an existing product in the database
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -110,6 +110,7 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Inventory item updated successfully!');
     }
+    // 9. Handle the form submission to delete an existing product from the database
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
