@@ -18,8 +18,16 @@
                 <p style="color: var(--gray); font-size: 0.9rem;">Price: ${{ number_format($details['price'], 2) }}</p>
             </div>
 
-            <div style="flex: 1; text-align: center;">
-                <span style="color: var(--gray);">Qty: <strong>{{ $details['quantity'] }}</strong></span>
+            <div style="flex: 1; text-align: center; min-width: 120px;">
+                <form action="{{ route('cart.update', $id) }}" method="POST" style="display: inline-flex; align-items: center; gap: 5px;">
+                    @csrf
+                    @method('PATCH')
+                    <label style="color: var(--gray); font-size: 0.9rem;">Qty:</label>
+                    <input type="number" name="quantity" value="{{ $details['quantity'] }}" min="1" style="width: 50px; padding: 4px; text-align: center; border: 1px solid var(--border-gray); border-radius: 4px;">
+                    <button type="submit" title="Update Quantity" style="background: var(--light-blue, #0284c7); color: white; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                        Update
+                    </button>
+                </form>
             </div>
 
             <div style="flex: 1; text-align: right; color: var(--dark-blue); font-weight: bold;">
