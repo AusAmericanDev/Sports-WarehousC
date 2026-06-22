@@ -33,7 +33,7 @@ Route::get('/about', function () {
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
 Route::get('/order-confirmation/{id}', [CheckoutController::class, 'confirmation'])->name('checkout.confirmation');
-
+Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
 //  PUBLIC CONTACT ROUTES (Moved out of the auth group)
 Route::get('/contact', function () {
     $categories = \App\Models\Category::all();

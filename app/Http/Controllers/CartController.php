@@ -35,7 +35,24 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
-    // 3. Remove an item from the cart session completely
+    // 3. Update the quantity of an item in the cart
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1|max:99',
+        ]);
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $request->quantity;
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Cart updated successfully.');
+    }
+
+    // 4. Remove an item from the cart session completely
     public function remove($id)
     {
         $cart = session()->get('cart', []);
