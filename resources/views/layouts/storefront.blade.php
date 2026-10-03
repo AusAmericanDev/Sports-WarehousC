@@ -71,7 +71,6 @@
             <div class="header-main">
                 <div class="header-logo-search">
                     <div class="header-logo">
-                        <!-- FIX 2: Wrapped brand logo in an <h1> to resolve W3C & WAVE missing h1 warnings -->
                         <h1>
                             <a href="{{ url('/') }}" aria-label="Sports Warehouse Home">
                                 <img src="{{ asset('images/sports-warehouse-logo-600.png') }}" alt="Sports Warehouse logo" />
@@ -96,8 +95,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- FIX 3: Changed <section> to <nav aria-label="Product categories"> or <div> to clear "Section lacks heading" warning -->
             <nav class="product-categories" aria-label="Product categories">
                 <div class="categories categories-track">
                     @foreach(\App\Models\Category::all() as $category)
