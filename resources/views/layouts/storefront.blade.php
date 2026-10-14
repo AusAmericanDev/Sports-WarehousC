@@ -358,26 +358,62 @@
             const chatInput = document.getElementById('sw-chat-input');
             const messagesContainer = document.getElementById('sw-chat-messages');
 
-            // FAQ Database matching client requirements
+            // Official Sports Warehouse FAQ Database from CI_ResearchAndQuality_AE_pro2of2_Part5_FAQ.docx
             const faqs = [{
-                    keywords: ['ship', 'delivery', 'post', 'freight'],
-                    reply: 'Standard delivery takes 3–5 business days within Australia. Express post is 1–2 business days. Free shipping on orders over $100!'
+                    keywords: ['payment', 'pay', 'visa', 'mastercard', 'amex', 'paypal', 'method'],
+                    reply: 'We accept Visa, MasterCard, American Express, and PayPal.'
                 },
                 {
-                    keywords: ['return', 'refund', 'exchange', 'warranty'],
-                    reply: 'Items can be returned or exchanged within 30 days of purchase with original receipt and tags attached.'
+                    keywords: ['stock', 'out of stock', 'sold out', 'missing item'],
+                    reply: "If an item you've ordered is sold out, we will ship all other products and confirm the plan for the missing items. We will refund payment if the item cannot be supplied."
                 },
                 {
-                    keywords: ['hour', 'open', 'time', 'trading'],
-                    reply: 'Our storefronts and online customer service are open Mon–Fri 9:00 AM – 5:30 PM, and Saturday 9:00 AM – 4:00 PM.'
+                    keywords: ['return', 'refund', 'policy', 'exchange'],
+                    reply: 'See our detailed policy pages on our website for full information.'
                 },
                 {
-                    keywords: ['order', 'track', 'status'],
-                    reply: 'You can check your order tracking details using the link sent in your confirmation email, or quote your #SW invoice number.'
+                    keywords: ['security', 'secure', 'safe', 'encryption', 'protect'],
+                    reply: 'Your personal information and payment information is protected by several leading technologies including encryption during the transport of data and while it is being stored (data at rest).'
                 },
                 {
-                    keywords: ['contact', 'phone', 'support', 'help', 'email'],
-                    reply: 'You can reach customer support at support@sportswarehouse.com.au or phone 1800 000 000.'
+                    keywords: ['where to send', 'return address', 'send return', 'label'],
+                    reply: 'Use the return label that was sent to you after your enquiry and refer to the physical address provided.'
+                },
+                {
+                    keywords: ['international', 'overseas', 'ship internationally'],
+                    reply: 'No, international shipping is not currently available.'
+                },
+                {
+                    keywords: ['pick up', 'pickup', 'click and collect', 'collect'],
+                    reply: 'No, all items will be delivered to the provided delivery address.'
+                },
+                {
+                    keywords: ['po box', 'post office box', 'p.o. box'],
+                    reply: 'Yes, we deliver to any PO Box address in Australia.'
+                },
+                {
+                    keywords: ['track', 'tracking', 'order status', 'where is my order'],
+                    reply: 'Use the tracking information provided via email or log into your account online and view the order information for more details.'
+                },
+                {
+                    keywords: ['personal data', 'privacy', 'data', 'handle data'],
+                    reply: 'Your personal data is kept secure on all of our servers and equipment, and is only accessible and viewable by authorised employees. Your personal details will not be shared with third parties outside of the agreed use cases and certainly will not be sold to third parties.'
+                },
+                {
+                    keywords: ['store payment', 'save card', 'credit card details'],
+                    reply: "No, we never store payment details. We use reputable payment gateways to safely and securely process your payments so that we don't have to!"
+                },
+                {
+                    keywords: ['brand', 'brands', 'nike', 'adidas', 'reebok', 'skins'],
+                    reply: 'We have a huge selection of popular brands including Nike, Adidas, Reebok, Skins and many more!'
+                },
+                {
+                    keywords: ['type of product', 'products do you sell', 'what do you sell', 'range'],
+                    reply: 'We sell balls, pants, equipment, tops, and much more! View our full range of product categories on the home page of our website.'
+                },
+                {
+                    keywords: ['find product', 'search', 'find quickly'],
+                    reply: 'Use our helpful search feature to quickly and easily find the products you are looking for. You can also browse for a product using our category menu/navigation, or look for featured products on the home page.'
                 }
             ];
 
