@@ -183,7 +183,7 @@
 
                     <!-- Success Banner -->
                     <div v-if="submitted" style="background: #28a745; color: white; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
-                        <strong>Success!</strong> Thank you, {{ formData.name }}. You are subscribed to updates for <em>{{ formData.category }}</em>.
+                        <strong>Success!</strong> Thank you, @{{ formData.name }}. You are subscribed to updates for <em>@{{ formData.category }}</em>
                     </div>
 
                     <!-- Reactive Form -->
@@ -198,7 +198,7 @@
                                 v-model.trim="formData.name"
                                 placeholder="Enter your full name"
                                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
-                            <small v-if="errors.name" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">{{ errors.name }}</small>
+                            <small v-if="errors.name" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">@{{ errors.name }}</small>
                         </div>
 
                         <!-- Customer Email -->
@@ -210,7 +210,7 @@
                                 v-model.trim="formData.email"
                                 placeholder="example@domain.com"
                                 style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
-                            <small v-if="errors.email" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">{{ errors.email }}</small>
+                            <small v-if="errors.email" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">@{{ errors.email }}</small>
                         </div>
 
                         <!-- Main Product Category of Interest (Dropdown) -->
@@ -227,7 +227,7 @@
                                 <option value="Equipment">Equipment</option>
                                 <option value="Training Gear">Training Gear</option>
                             </select>
-                            <small v-if="errors.category" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">{{ errors.category }}</small>
+                            <small v-if="errors.category" style="color: #ffb4a2; font-weight: bold; display: block; margin-top: 4px;">@{{ errors.category }}</small>
                         </div>
 
                         <button
