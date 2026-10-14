@@ -267,7 +267,7 @@
                     <!-- Messages Container -->
                     <div id="sw-chat-messages" style="flex: 1; padding: 14px; overflow-y: auto; background: #f8f9fa; display: flex; flex-direction: column; gap: 10px;">
                         <div style="background: #e9ecef; color: #333; padding: 10px; border-radius: 8px 8px 8px 0; max-width: 85%; font-size: 0.9rem;">
-                            Hi! I'm your automated assistant. Ask me about <strong>shipping</strong>, <strong>returns</strong>, <strong>store hours</strong>, or <strong>orders</strong>!
+                            Hi! I'm your automated assistant. Ask me about <strong>Payments</strong>, <strong>inventory</strong>, <strong>tracking</strong>, or <strong>refunds</strong>!
                         </div>
                     </div>
 
@@ -368,7 +368,7 @@
                     reply: "If an item you've ordered is sold out, we will ship all other products and confirm the plan for the missing items. We will refund payment if the item cannot be supplied."
                 },
                 {
-                    keywords: ['return', 'refund', 'policy', 'exchange'],
+                    keywords: ['return', 'refund', 'policy', 'exchange', 'refunds'],
                     reply: 'See our detailed policy pages on our website for full information.'
                 },
                 {
