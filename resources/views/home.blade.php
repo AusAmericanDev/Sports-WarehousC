@@ -3,7 +3,7 @@
 @section('content')
 <section class="hero-banner" aria-label="Featured campaign">
   <div class="hero-slides" aria-live="polite">
-    <img src="{{ asset('images/hero-soccerBall.jpg') }}" alt="Soccer ball on grass" class="hero-image hero-slide is-active" />
+    <img src="{{ asset('images/hero-soccerBall.jpg') }}" alt="Soccer ball on grass" class="hero-image hero-slide is-active" width="849" height="300" fetchpriority="high" decoding="async" />
   </div>
   <aside class="hero-promo" aria-hidden="true">
     <p class="hero-small-text">View our brand new range of</p>
@@ -27,7 +27,7 @@
         <h3 class="visually-hidden">{{ $product->name }}</h3>
 
         <div class="product-img-wrapper">
-          <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" />
+          <img src="{{ asset('images/' . $product->image_path) }}" alt="{{ $product->name }}" width="130" height="110" loading="lazy" decoding="async" />
         </div>
 
         <div class="product-info-wrapper">
@@ -64,12 +64,12 @@
   <section class="brands-logos" aria-label="Brand logos">
     <div>
       <ul class="brand-list">
-        <li><img src="{{ asset('images/logo-nike.png') }}" alt="Nike logo" /></li>
-        <li><img src="{{ asset('images/logo-adidas.png') }}" alt="Adidas logo" /></li>
-        <li><img src="{{ asset('images/logo-skins.png') }}" alt="Skins logo" /></li>
-        <li><img src="{{ asset('images/logo-asics.png') }}" alt="Asics logo" /></li>
-        <li><img src="{{ asset('images/logo-newbalance.png') }}" alt="New Balance logo" /></li>
-        <li><img src="{{ asset('images/logo-wilson.png') }}" alt="Wilson logo" /></li>
+        <li><img src="{{ asset('images/logo-nike.png') }}" alt="Nike logo" width="80" height="28" loading="lazy" /></li>
+        <li><img src="{{ asset('images/logo-adidas.png') }}" alt="Adidas logo" width="80" height="28" loading="lazy" /></li>
+        <li><img src="{{ asset('images/logo-skins.png') }}" alt="Skins logo" width="80" height="28" loading="lazy" /></li>
+        <li><img src="{{ asset('images/logo-asics.png') }}" alt="Asics logo" width="80" height="28" loading="lazy" /></li>
+        <li><img src="{{ asset('images/logo-newbalance.png') }}" alt="New Balance logo" width="80" height="28" loading="lazy" /></li>
+        <li><img src="{{ asset('images/logo-wilson.png') }}" alt="Wilson logo" width="80" height="28" loading="lazy" /></li>
 
       </ul>
     </div>
